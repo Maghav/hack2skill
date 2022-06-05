@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interview Task</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -14,9 +14,11 @@
 <body>
 
     <div class="section mt-5 mb-5">
-        <div class="container">
+        <div class="px-5">
 
-            <table class="table table-striped table-hover">
+            <button id="getData" type="button">Fetch Data</button>
+
+            <table id="dataTable" class="table table-striped table-hover" style="display: none;">
                 <thead>
                     <tr>
                         <th>#<th>
@@ -37,8 +39,9 @@
 
     <script>
 
-        $(document).ready(function () {
-            $.get("http://localhost:8000/").then((res) => {
+        $("#getData").click(function () {
+            $("#dataTable").show();
+            $.get("/").then((res) => {
                 
                 let ref = $("#tableBody");
                 res.forEach((item, i) => {
